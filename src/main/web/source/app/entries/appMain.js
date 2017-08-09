@@ -5,6 +5,7 @@ var bulk = require('bulk-require');
 var sections = bulk(__dirname, [
     '../module/**/*.js',
     '../controller/**/*.js',
-    '../server/**/*.js'
+    '../server/**/*.js',
+    '../filters/**/*.js'
 ]);
 module.exports={};

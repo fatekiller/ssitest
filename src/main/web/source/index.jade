@@ -12,7 +12,4 @@ html(lang="en" ng-app="BookApp" )
         script(src='/js/appMain.js')
         link(rel="stylesheet" href="/style/style.css")
     body
-        .menu(ng-repeat="item in menu")
-            span(style="width:100px" ui-sref='{{item.name}}')
-                a(ng-bind="item.data.name")
         .bigView(ui-view="")

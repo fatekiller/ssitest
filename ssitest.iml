@@ -31,7 +31,15 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
-      <excludeFolder url="file://$MODULE_DIR$/src/main/web/libs" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/web/libs/angular-animate" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/web/libs/echarts" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/web/libs/fingerprintjs2" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/web/libs/i18next" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/web/libs/i18next-xhr-backend" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/web/libs/jquery" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/web/libs/ng-i18next" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/web/libs/ngSweetAlert" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/web/libs/sweetalert" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/web/node_modules" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/web/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/target" />

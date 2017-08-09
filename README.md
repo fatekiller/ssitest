@@ -12,3 +12,31 @@ a web architecture use gulp+angular+ssi
 2. angular for the modulize
 3. ng-file-upload for the file upload
 4. angular-ui-router for the route
+
+### sample project structure
+#### role and activity:
+##### admin:
+- manage book
+- audit borrow request
+- monitor user info
+##### user:
+- manage user info
+- borrow book
+- return book
+- view book info
+
+#### admin
+\-\-\-\-book \
+\-\-\-\-book.bookInfo \
+\-\-\-\-book.bookList \
+\-\-\-\-book.addBook
+
+\-\-\-\-user
+\-\-\-\-user.userInfo \
+\-\-\-\-user.userList
+
+#### user
+\-\-\-\-book \
+\-\-\-\-book.bookInfo \
+\-\-\-\-book.bookList \
+\-\-\-\-book.borrow

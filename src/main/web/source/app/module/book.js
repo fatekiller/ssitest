@@ -7,23 +7,39 @@ bookConfig.$inject=['$stateProvider'];
 function bookConfig($stateProvider) {
     var routeList=[
         {
-            name:'book',
+            name:'admin.book',
             url:"/BookList",
-            templateUrl: "view/book/BookList.html",
-            //controller:'bookctrl',
+            abstract:true,
+            templateUrl: "view/common/subMenu.html",
+            controller:'subMenuCtrl',
+            isIndex:true,
             data:{
                 name:'书籍',
-                parent:'bigMenu'
+                parent:'bigMenu',
+                role:['user','admin']
             }
         },
         {
-            name:'book.bookinfo',
+            name:'admin.book.bookInfo',
             url:"/BookInfo",
-            templateUrl: "view/book/BookInfo.html",
+            templateUrl: "view/book/bookInfo.html",
             controller:'bookInfoCtrl',
+            isIndex:true,
             data:{
                 name:'书籍信息',
-                parent:'book'
+                parent:'admin.book',
+                role:['user','admin']
+            }
+        },
+        {
+            name:'admin.book.bookList',
+            url:"/BookList",
+            templateUrl: "view/book/BookList.html",
+            controller:'bookInfoCtrl',
+            data:{
+                name:'书籍列表',
+                parent:'admin.book',
+                role:['admin']
             }
         }
     ];

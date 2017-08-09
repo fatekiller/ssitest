@@ -1,0 +1,6 @@
+.bigMenu
+    .menu
+        .menuItem(ng-repeat="menu in bigMenus|roleFilter")
+            span(ng-bind="menu.data.name" ng-click="jump(menu)")
+    .content(ui-view="")
+

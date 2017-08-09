@@ -10,13 +10,34 @@ borrowConfig.$inject=['$stateProvider'];
 function borrowConfig($stateProvider) {
     var routeList=[
         {
-            name:'borrow',
-            url:"/BorrowList",
-            templateUrl: "view/borrow/borrowList.html",
-            controller:'borrowctrl',
+            name:'admin.borrow',
+            url:"/Borrow",
+            templateUrl: "view/common/subMenu.html",
+            controller:'subMenuCtrl',
             data:{
                 name:'借阅',
-                parent:'bigMenu'
+                parent:'bigMenu',
+                role:['admin']
+            }
+        },{
+            name:'admin.borrow.borrowList',
+            url:"/BorrowList",
+            templateUrl: "view/borrow/borrowList.html",
+            controller:'borrowListCtrl',
+            data:{
+                name:'借阅列表',
+                parent:'admin.borrow',
+                role:['admin']
+            }
+        },{
+            name:'admin.borrow.borrowInfo',
+            url:"/BorrowList",
+            templateUrl: "view/borrow/borrowInfo.html",
+            controller:'borrowInfoCtrl',
+            data:{
+                name:'借阅信息',
+                parent:'admin.borrow',
+                role:['admin']
             }
         }
     ];

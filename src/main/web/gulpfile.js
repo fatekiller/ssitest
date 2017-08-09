@@ -20,8 +20,9 @@ var FOLDER='tmp/';
 var ENTRIES='source/app/entries/appMain.js';
 var JS='source/**/*.js';
 var LIBS='libs/**/*.js';
+var STYLES='source/assets/**/*.less';
 var CSSMAIN='source/assets/style.less';
-var SERVER_PROXY='http://localhost:8080';
+var SERVER_PROXY='http://localhost:8082';
 
 //watchify用到的配置信息
 var config = {
@@ -56,6 +57,7 @@ gulp.task("bundle", watchify(function (wf) {
 gulp.task('watch', function () {
 	gulp.watch(JADES, ['compile-jade']);
 	gulp.watch(['./source/**/*.js'], ['js']);
+    gulp.watch(STYLES,['compile-style'])
 });
 
 //代理配置
@@ -96,7 +98,7 @@ gulp.task('compile-style',function () {
 
 gulp.task('connect', ['default'],function () {
     browserSync.init({
-        port: 8088,
+        port: 8081,
         ghostMode: false,
         server: './tmp',
         middleware:[proxy]
