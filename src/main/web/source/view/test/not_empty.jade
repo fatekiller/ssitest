@@ -1,0 +1,15 @@
+.not_empty(not-empty check='check')
+    .row
+        input(ng-model="a" required)
+        span(ng-bind='a')
+    .row
+        input(ng-model="b" required)
+        span(ng-bind='b')
+    .row
+        input(ng-model="c" required)
+        span(ng-bind="c")
+    .row
+        input(ng-model="d" required)
+        span(ng-bind="d")
+    .row
+        span(ng-click='submit()') submit

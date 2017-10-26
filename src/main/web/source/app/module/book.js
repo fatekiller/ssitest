@@ -35,7 +35,7 @@ function bookConfig($stateProvider) {
             name:'admin.book.bookList',
             url:"/BookList",
             templateUrl: "view/book/BookList.html",
-            controller:'bookInfoCtrl',
+            controller:'bookListCtrl',
             data:{
                 name:'书籍列表',
                 parent:'admin.book',

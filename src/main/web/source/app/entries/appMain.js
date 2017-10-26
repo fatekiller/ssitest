@@ -6,6 +6,8 @@ var sections = bulk(__dirname, [
     '../module/**/*.js',
     '../controller/**/*.js',
     '../server/**/*.js',
-    '../filters/**/*.js'
+    '../filters/**/*.js',
+    '../service/**/*.js',
+    '../directives/**/*.js'
 ]);
 module.exports={};

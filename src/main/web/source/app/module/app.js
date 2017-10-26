@@ -5,9 +5,10 @@ var myApp = angular.module("BookApp",
     [
         'ui.router',
         'ngResource',
-
-        'bookModule',
+        'session',
         'borrowModule',
+        'testModule',
+        'bookModule',
         'ngFileUpload'
     ]);
 

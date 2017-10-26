@@ -1,13 +1,19 @@
-/**
- * Created by liuchenfei on 2017/3/1.
- */
-//var md=require('../module/app');
-//md.controller("bookctrl",['$scope','$rootScope'], function ($scope,$rootScope) {
-//    console.log('book');
-//});
 var md=require('../../module/book');
-md.controller("bookctrl",bookctrl);
-bookctrl.$inject=['$scope','$rootScope'];
-function bookctrl($scope,$rootScope){
-    console.log("sdfasd")
+md.controller("bookListCtrl",bookListCtrl);
+//var wangEditor=require('../../../../libs/wangEditor/release/wangEditor.min.js');
+bookListCtrl.$inject=['$scope','$rootScope','$sce','commonServer'];
+function bookListCtrl($scope,$rootScope,$sce,commonServer){
+    var editor = new wangEditor('#editor');
+    editor.customConfig.uploadImgShowBase64 = true;
+    editor.create();
+
+
+    //$scope.html="";
+    $scope.copy= function () {
+        $scope.html=editor.txt.html();
+        $scope.safeHtml=$sce.trustAsHtml($scope.html);
+    }
+    commonServer.getUserName(function(result){
+       debugger
+    });
 };

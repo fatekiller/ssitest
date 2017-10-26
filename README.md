@@ -16,27 +16,9 @@ a web architecture use gulp+angular+ssi
 ### sample project structure
 #### role and activity:
 ##### admin:
-- manage book
-- audit borrow request
-- monitor user info
+- manage users: browse user list with name,fileNum,disk usage; lock\unlock user
+- manage files: browse files list with name,size,upload time,download num,owner;delete\recover file
 ##### user:
-- manage user info
-- borrow book
-- return book
-- view book info
-
-#### admin
-\-\-\-\-book \
-\-\-\-\-book.bookInfo \
-\-\-\-\-book.bookList \
-\-\-\-\-book.addBook
-
-\-\-\-\-user
-\-\-\-\-user.userInfo \
-\-\-\-\-user.userList
-
-#### user
-\-\-\-\-book \
-\-\-\-\-book.bookInfo \
-\-\-\-\-book.bookList \
-\-\-\-\-book.borrow
+- upload/browse/delete/download/move/share file
+- create/delete directory
+- login/logout

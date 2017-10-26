@@ -1,10 +1,10 @@
 var md=require("../module/app");
-md.filter('roleFilter',['$rootScope',function($rootScope){
+md.filter('roleFilter',['session',function(session){
     return function (items) {
         var filtered=[];
         angular.forEach(items,function(menu){
             angular.forEach(menu.data.role, function (role) {
-                if(role==$rootScope.role){
+                if(role==session.get('role',"admin")){
                     filtered.push(menu);
                 }
             });

@@ -1,4 +1,6 @@
 //
    Created by liuchenfei on 2017/3/1.
 .BookList
-    span bookList
+    span(ng-click="copy()") bookList
+    div#editor
+    div(ng-bind-html="safeHtml")

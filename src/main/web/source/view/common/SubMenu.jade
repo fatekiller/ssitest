@@ -1,0 +1,7 @@
+//
+   Created by liuchenfei on 2017/8/7.
+.subMenu
+    .menu
+        .menuItem(ng-repeat="menu in subMenus|roleFilter")
+            span(ng-bind="menu.data.name" ng-click="go(menu.name)")
+    .content(ui-view="")
