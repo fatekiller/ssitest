@@ -4,7 +4,7 @@ md.filter('roleFilter',['session',function(session){
         var filtered=[];
         angular.forEach(items,function(menu){
             angular.forEach(menu.data.role, function (role) {
-                if(role==session.get('role',"admin")){
+                if(role==session.get('role')){
                     filtered.push(menu);
                 }
             });

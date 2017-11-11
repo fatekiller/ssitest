@@ -1,9 +1,9 @@
 package net.liuchenfei.ssitest.vos;
 
+import net.liuchenfei.ssitest.entitys.Directory;
 import net.liuchenfei.ssitest.entitys.User;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 
 /**
  * Created by liuchenfei on 2017/5/11.
@@ -11,7 +11,33 @@ import java.text.SimpleDateFormat;
 public class UserVO implements Serializable{
     private String userName;
     private String password;
-    private String regDate;
+    private String role;
+    private String userId;
+    private Directory rootDir;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public Directory getRootDir() {
+        return rootDir;
+    }
+
+    public void setRootDir(Directory rootDir) {
+        this.rootDir = rootDir;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     public String getUserName() {
         return userName;
@@ -29,17 +55,10 @@ public class UserVO implements Serializable{
         this.password = password;
     }
 
-    public String getRegDate() {
-        return regDate;
-    }
-
-    public void setRegDate(String regDate) {
-        this.regDate = regDate;
-    }
-
     public UserVO(User user) {
-        this.userName = user.getUsername();
-        this.password = user.getPassword();
-        this.regDate = new SimpleDateFormat("yyyy-MM-dd").format(user.getRegdate());
+        userId = user.getUserId();
+        userName = user.getUserName();
+        password = user.getUserPass();
+        role = user.getUserRole() == 0 ? "user" : "admin";
     }
 }

@@ -1,0 +1,65 @@
+<div class="fileList" ng-init="loadFiles()">
+    <ul class="sideMenu">
+        <li class="type" ng-repeat="type in typeList">
+            <span ng-bind="type.name" ng-click="filterType(type.id)"></span>
+        </li>
+    </ul>
+    <div class="content">
+        <div class="toolbar">
+            <button type=" button" class="btn btn-default" ng-click="addDir()">
+                <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span> 新建文件夹
+            </button>
+            <button type=" button" class="btn btn-default" ngf-select="upload($file)">
+                <span class="glyphicon glyphicon glyphicon-upload" aria-hidden="true"></span> 上传文件
+            </button>
+            <button type="button" class="btn btn-default" ng-click="returnToParent()">
+                <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> 返回上级目录
+            </button>
+            <button type="button" class="btn btn-default" ng-click="deleteBatch()">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> 删除选中项
+            </button>
+            <span>当前目录：{{dirName}}</span>
+        </div>
+        <div ng-if="vm" ng-class="{progress: true, 'progress-striped': vm.striped}">
+            <div ng-class="['progress-bar', vm.style]" ng-style="{width: vm.value + '%'}">
+                <div ng-if="vm.showLabel">{{vm.value}}%</div>
+            </div>
+        </div>
+        <table class="fileListTable">
+            <tr>
+                <th class="check"></th>
+                <th>文件名</th>
+                <th>大小</th>
+                <th>修改日期</th>
+                <th>下载</th>
+            </tr>
+            <tr ng-repeat="file in fileAndDirList">
+                <th class="check"><input type="checkbox" ng-model="file.isSelect"></th>
+                <td>
+                    <span ng-if="!file.fileType" class="glyphicon glyphicon-folder-close"
+                          aria-hidden="true"><a ng-if="!file.isNew" ng-click="loadFiles(file.id)" class="fileName">{{file.name}}</a></span>
+                    <span ng-if="file.fileType==1" class="glyphicon glyphicon-file" aria-hidden="true"></span>
+                    <span ng-if="file.fileType==2" class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+                    <span ng-if="file.fileType==3" class="glyphicon glyphicon-film" aria-hidden="true"></span>
+                    <span ng-if="file.fileType==4" class="glyphicon glyphicon-music" aria-hidden="true"></span>
+                    <span ng-if="file.fileType==5" class="glyphicon glyphicon-book" aria-hidden="true"></span>
+                    <span ng-if="file.fileType" ng-bind="file.name" ng-class="{normal:!file.status,locked:file.status}"
+                          class="fileName"></span>
+                    <input ng-if="file.isNew" type="text" class="form-control" ng-model="dirToAdd.name">
+                    <span ng-if="file.isNew" class="glyphicon glyphicon-ok-sign" ng-click="doAddDir()"></span>
+                    <span ng-if="file.isNew" class="glyphicon glyphicon-remove-sign" ng-click="giveUpAddDir()"></span>
+                </td>
+                <td ng-bind="file.size"></td>
+                <td ng-bind="file.updateTime"></td>
+                <td>
+                    <a target="_blank" href="/api/file/downloadFile.do?userFileId={{file.id}}">
+                    <span ng-if="file.fileType"
+                          class="glyphicon glyphicon-arrow-down"
+                          aria-hidden="true"></span>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>

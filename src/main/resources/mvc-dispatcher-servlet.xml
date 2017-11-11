@@ -11,12 +11,18 @@
        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <context:component-scan base-package="net.liuchenfei.ssitest.ctl"/>
-    <context:component-scan base-package="net.liuchenfei.ssitest.ctl"/>
 
     <!--试图解析器，返回modelandview的时候从这个路径里面找同名的jsp文件-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="maxUploadSize" value="5400000"/>
+        <property name="uploadTempDir" value="/file_temp"/>
+
     </bean>
 
     <!--启动注解驱动，使用注解配置拦截路径-->

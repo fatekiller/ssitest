@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<div class="container login">
+
+    <form class="form-signin">
+        <div class="btn-group" role="group" aria-label="...">
+            <button type="button" ng-click='isRegister=0' class="btn btn-default">登陆</button>
+            <button type="button" ng-click='isRegister=1' class="btn btn-default">注册</button>
+        </div>
+        <input ng-model="username" type="text" id="inputEmail" class="form-control" placeholder="请输入用户名" required autofocus>
+        <input ng-model="password" type="password" class="form-control" placeholder="请输入密码" required>
+        <button ng-show="!isRegister" ng-click="submit()" class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+        <button ng-show="isRegister" ng-click="submit()" class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
+    </form>
+</div>
+</body>
+</html>

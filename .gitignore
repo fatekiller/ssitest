@@ -3,3 +3,5 @@ target/
 src/main/web/node_modules/
 src/main/web/libs/
 src/main/web/tmp/
+/src/main/webapp/file_temp/
+/ssitest.iml

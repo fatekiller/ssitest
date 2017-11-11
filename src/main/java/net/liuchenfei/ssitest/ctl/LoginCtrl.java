@@ -4,6 +4,7 @@ package net.liuchenfei.ssitest.ctl;
 import com.google.gson.Gson;
 import net.liuchenfei.ssitest.services.UserService;
 import net.liuchenfei.ssitest.utils.GsonU;
+import net.liuchenfei.ssitest.utils.Result;
 import net.liuchenfei.ssitest.vos.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,10 +25,32 @@ public class LoginCtrl {
 
     @RequestMapping(value = "/login.do",method = RequestMethod.POST)
     @ResponseBody
-    public UserVO login(@RequestParam(value = "username")String username,
+    public Result<UserVO> login(@RequestParam(value = "username")String username,
+                               @RequestParam(value = "password") String password){
+        Result<UserVO> result=new Result<>();
+        try{
+            result.setValue(userService.login(username,password));
+            result.setSuccess(true);
+        }catch (Exception e){
+            result.setError(e.getMessage());
+            result.setSuccess(false);
+        }
+        return result;
+    }
+
+    @RequestMapping(value = "/register.do",method = RequestMethod.POST)
+    @ResponseBody
+    public Result<UserVO> register(@RequestParam(value = "username")String username,
                         @RequestParam(value = "password") String password){
-        UserVO user=userService.login(username,password);
-        return user;
+        Result<UserVO> result=new Result<>();
+        try{
+            result.setValue(userService.register(username,password));
+            result.setSuccess(true);
+        }catch (Exception e){
+            result.setError(e.getMessage());
+            result.setSuccess(false);
+        }
+        return result;
     }
 
 }

@@ -1,0 +1,78 @@
+.fileList {
+  height: 100%;
+  width: 86%;
+  ul {
+    margin-top: 40px;
+  }
+  li {
+    list-style-type: none;
+    font-size: 15px;
+    line-height: 45px;
+    cursor: pointer;
+    span:hover {
+      color: cornflowerblue;
+    }
+  }
+  .sideMenu {
+    position: absolute;
+    float: left;
+    width: 200px;
+    height: 80%;
+    display: inline-block;
+  }
+  .content {
+    width: 100%;
+    height: 100%;
+    margin-left: 200px;
+    background: whitesmoke;
+    display: inline-block;
+    .toolbar {
+      margin: 20px 0px;
+      button, span {
+        margin-left: 20px;
+      }
+    }
+    .fileListTable {
+      margin: 0px 0px 0px 20px;
+      width: 80%;
+      .check {
+        width: 5%;
+      }
+      td {
+        width: 25%;
+        .glyphicon-arrow-down:hover {
+          color: cornflowerblue;
+        }
+        .fileName {
+          margin-left: 10px;
+        }
+        a.fileName {
+          margin-left: 13px;
+          cursor: pointer;
+        }
+        span.fileName.normal {
+          color: #000;
+        }
+        span.fileName.locked {
+          color: gray;
+        }
+        .form-control {
+          width: 67%;
+          height: 34px;
+          display: inline-block;
+        }
+      }
+      td.fileName {
+        width: 25%;
+      }
+
+    }
+    .admin td {
+      width: 20%;
+    }
+  }
+}
+
+.adminFileList {
+  height: 100%;
+}

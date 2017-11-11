@@ -9,7 +9,7 @@
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
     <context:component-scan base-package="net.liuchenfei.ssitest.daos"/>
-    <context:component-scan base-package="net.liuchenfei.ssitest.services.impl"/>
+    <context:component-scan base-package="net.liuchenfei.ssitest.services"/>
 
     <beans>
         <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">

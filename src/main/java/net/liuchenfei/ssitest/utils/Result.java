@@ -6,7 +6,7 @@ package net.liuchenfei.ssitest.utils;
 public class Result<T> {
     private T value;
 
-    private boolean success;
+    private boolean success = true;
 
     private String error;
 

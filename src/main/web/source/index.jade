@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-html(lang="en" ng-app="BookApp" )
+html(lang="en" ng-app="NetDiskApp" )
     head
         meta(charset="UTF-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
-        title Book And Borrow
-        script(src="libs/jquery/jquery.min.js")
-        script(src="libs/angular/angular.min.js")
-        script(src="libs/angular-ui-router/release/angular-ui-router.min.js")
-        script(src="libs/angular-resource/angular-resource.min.js")
-        script(src="libs/ng-file-upload/ng-file-upload.js")
-        script(src="libs/wangEditor/release/wangEditor.min.js")
-        script(src='/js/appMain.js')
-        link(rel="stylesheet" href="libs/weui/dist/style/weui.min.css")
+        title NetDiskApp
+        link(rel="stylesheet" href="libs/bootstrap-3.3.7-dist/css/bootstrap.min.css")
+        link(rel="stylesheet" href="libs/sweetalert/dist/sweetalert.css")
         link(rel="stylesheet" href="/style/style.css")
     body
         .bigView(ui-view="")
+    script(src="libs/jquery/jquery.min.js")
+    script(src="libs/bootstrap-3.3.7-dist/js/bootstrap.min.js")
+    script(src="libs/angular/angular.min.js")
+    script(src="libs/angular-ui-router/release/angular-ui-router.min.js")
+    script(src="libs/angular-resource/angular-resource.min.js")
+    script(src="libs/ng-file-upload/ng-file-upload.js")
+    script(src="libs/wangEditor/release/wangEditor.min.js")
+    script(src="libs/sweetalert/dist/sweetalert.min.js")
+    script(src="libs/ngSweetAlert/SweetAlert.min.js")
+    script(src='/js/appMain.js')

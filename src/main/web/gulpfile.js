@@ -16,6 +16,7 @@ var buffer=require('gulp-buffer');
 var streamify = require('gulp-streamify');
 
 var JADES='source/**/*.jade';
+var HTMLS='source/**/*.html';
 var FOLDER='tmp/';
 var ENTRIES='source/app/entries/appMain.js';
 var JS='source/**/*.js';
@@ -58,6 +59,7 @@ gulp.task('watch', function () {
 	gulp.watch(JADES, ['compile-jade']);
 	gulp.watch(['./source/**/*.js'], ['js']);
     gulp.watch(STYLES,['compile-style'])
+    gulp.watch(HTMLS,['compile-html'])
 });
 
 //代理配置
@@ -73,6 +75,9 @@ gulp.task("clear", function (cb) {
 
 gulp.task('compile-libs',function () {
     gulp.src(LIBS).pipe(gulp.dest(FOLDER+'libs'));
+});
+gulp.task('compile-html', function () {
+    gulp.src(HTMLS).pipe(gulp.dest(FOLDER));
 });
 
 gulp.task('compile-jade',function () {
@@ -107,7 +112,7 @@ gulp.task('connect', ['default'],function () {
 });
 
 //运行Gulp时，默认的Task
-gulp.task('default',['compile-jade','compile-libs','compile-style','bundle']);
+gulp.task('default',['compile-jade','compile-libs','compile-style','compile-html','bundle']);
 
 gulp.task('server',seq('clear','connect'));
 

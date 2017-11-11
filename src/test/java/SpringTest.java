@@ -26,10 +26,10 @@ public class SpringTest {
     public void testInsert() {
         try {
             User u=new User();
-            u.setUserid(UUID.randomUUID().toString());
-            u.setUsername("username");
-            u.setPassword("password");
-            u.setRegdate(new Date());
+//            u.setUserid(UUID.randomUUID().toString());
+//            u.setUsername("username");
+//            u.setPassword("password");
+//            u.setRegdate(new Date());
             mapper.insertSelective(u);
         } catch (Exception e) {
             e.printStackTrace();
@@ -39,16 +39,16 @@ public class SpringTest {
     @Test
     public void testRedis() {
         try {
-            User u=new User();
-            u.setUserid(UUID.randomUUID().toString());
-            u.setUsername("username");
-            u.setPassword("password");
-            u.setRegdate(new Date());
-            //redisTemplate.restore("testkey", "testvalue".getBytes(),1000L, TimeUnit.SECONDS);
-            redisTemplate.opsForValue().set("testkey","testvalue");
-
-            String a=redisTemplate.opsForValue().get("testkey").toString();
-            System.out.println(a);
+//            User u=new User();
+//            u.setUserid(UUID.randomUUID().toString());
+//            u.setUsername("username");
+//            u.setPassword("password");
+//            u.setRegdate(new Date());
+//            //redisTemplate.restore("testkey", "testvalue".getBytes(),1000L, TimeUnit.SECONDS);
+//            redisTemplate.opsForValue().set("testkey","testvalue");
+//
+//            String a=redisTemplate.opsForValue().get("testkey").toString();
+//            System.out.println(a);
         } catch (Exception e) {
             e.printStackTrace();
         }

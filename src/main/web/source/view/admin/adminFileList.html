@@ -1,0 +1,65 @@
+<div class="adminFileList">
+    <div class="fileList" ng-init="loadFiles()">
+        <ul class="sideMenu">
+            <li class="type" ng-repeat="type in typeList">
+                <span ng-bind="type.name" ng-click="filterRule.type=type.id;filterFile()"></span>
+            </li>
+        </ul>
+        <div class="content">
+            <div class="toolbar">
+
+                <button type=" button" class="btn btn-{{filterRule.hideLock?'primary':'default'}}"
+                        ng-click="filterRule.hideLock=!filterRule.hideLock;filterFile()">
+                    <span class="glyphicon glyphicon glyphicon-filter" aria-hidden="true"></span> 隐藏锁定文件
+                </button>
+
+                <button type="button" class="btn btn-default" ng-click="lockBatch()">
+                    <span class="glyphicon glyphicon-lock" aria-hidden="true"></span> 锁定选中项
+                </button>
+                <span>文件个数：{{fileList.length}}</span>
+                <span>总容量：{{totalSize}}</span>
+            </div>
+            <div ng-if="vm" ng-class="{progress: true, 'progress-striped': vm.striped}">
+                <div ng-class="['progress-bar', vm.style]" ng-style="{width: vm.value + '%'}">
+                    <div ng-if="vm.showLabel">{{vm.value}}%</div>
+                </div>
+            </div>
+            <table class="fileListTable admin">
+                <tr>
+                    <th class="check"></th>
+                    <th>文件名</th>
+                    <th>大小</th>
+                    <th>修改日期</th>
+                    <th>文件状态</th>
+                    <th>下载</th>
+                </tr>
+                <tr ng-repeat="file in fileList">
+                    <th class="check"><input type="checkbox" ng-model="file.isSelect"></th>
+                    <td class="fileName">
+                        <span ng-if="file.fileType==1" class="glyphicon glyphicon-file" aria-hidden="true"></span>
+                        <span ng-if="file.fileType==2" class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+                        <span ng-if="file.fileType==3" class="glyphicon glyphicon-film" aria-hidden="true"></span>
+                        <span ng-if="file.fileType==4" class="glyphicon glyphicon-music" aria-hidden="true"></span>
+                        <span ng-if="file.fileType==5" class="glyphicon glyphicon-book" aria-hidden="true"></span>
+                    <span ng-if="file.fileType" ng-bind="file.fileName"
+                          ng-class="{normal:!file.fileStatus,locked:file.fileStatus}"
+                          class="fileName"></span>
+                    </td>
+                    <td ng-bind="file.fileSize/1024+' kb'"></td>
+                    <td ng-bind="file.uploadTime|date:'yyyy-MM-dd HH:mm'"></td>
+                    <td ng-bind="statusList[file.fileStatus]"></td>
+                    <td>
+                        <a ng-if="!file.status" target="_blank"
+                           href="/api/file/adminDownloadFile.do?fileId={{file.fileId}}">
+                            <span ng-if="file.fileType"
+                                  class="glyphicon glyphicon-arrow-down"
+                                  aria-hidden="true">
+                            </span>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>
