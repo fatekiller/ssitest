@@ -129,7 +129,6 @@ function fileListCtrl($scope, $state, session, commonServer, Upload) {
             }
             $scope.loadFiles(null, true);
         }, function (resp) {
-            swal("服务器错误");
             console.log('Error status: ' + resp.status);
         }, function (evt) {
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);

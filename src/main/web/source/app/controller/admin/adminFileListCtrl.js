@@ -23,9 +23,11 @@ function adminFileListCtrl($scope, $state, session, commonServer) {
         commonServer.get('file', 'getAllFiles.do', {}, {}, function (value) {
             $scope.AllfileList = value;
             $scope.fileList = $scope.AllfileList;
-            $scope.totalSize = $scope.AllfileList.reduce(function (sum, item) {
-                    return sum.fileSize + item.fileSize;
-                }) / 1024 + ' kb';
+            $scope.totalSize = 0;
+            $scope.AllfileList.map(function (item) {
+                $scope.totalSize += item.fileSize / 1024;
+            });
+            $scope.totalSize = $scope.totalSize / 1024 + ' Mb';
         })
     };
     $scope.filterFile = function () {

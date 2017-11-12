@@ -52,7 +52,7 @@
                 <td ng-bind="file.size"></td>
                 <td ng-bind="file.updateTime"></td>
                 <td>
-                    <a target="_blank" href="/api/file/downloadFile.do?userFileId={{file.id}}">
+                    <a ng-if="!file.status" target="_blank" href="/api/file/downloadFile.do?userFileId={{file.id}}">
                     <span ng-if="file.fileType"
                           class="glyphicon glyphicon-arrow-down"
                           aria-hidden="true"></span>
